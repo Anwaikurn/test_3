@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap"
         rel="stylesheet">
+
   <title>Title</title>
 </head>
 <body>
 <section id="header">
   <div class="header-container">
     <div class="header-content">
-      <div>
+      <div class="header-item">
         <img src="img/logo.png" alt="Logo image" height="100" width="273">
       </div>
-      <div class="contacts">
+      <div class="header-item contacts">
         <p>
           +7(499) 777-77-77<br>
           +7(499) 777-77-77
@@ -199,19 +200,6 @@
               </a>
             </div>
           </div>
-          <div class="content-item">
-            <img src="img/nophoto@1X.png" alt="no photo" width="210"
-                 height="209">
-            <p class="item-discription">Самый клевый чайник, который надо
-              купить!</p>
-            <div class="item-price">
-              <p>1 900 р.</p>
-              <a href="#">
-                <img src="img/addtobasket_mini@1X.png" alt="basket" width="28"
-                     height="21">
-              </a>
-            </div>
-          </div>
         </div>
         <div class="center-pager">
           <ul>
@@ -288,62 +276,38 @@
       <div class="form-content">
         <h2>Обратная связь</h2>
         <div class="form-fields">
-          <div class="field">
-            <p>Ваше имя*</p>
-            <input type="text" name="some" placeholder=""/>
-          </div>
-          <div class="field">
-            <p>Телефон*</p>
-            <input type="text" name="some" placeholder=""/>
-          </div>
-          <div class="field">
-            <p>Email*</p>
-            <input type="text" name="some" placeholder=""/>
-          </div>
-          <div class="field">
-            <p>Сообщение</p>
-            <textarea cols="30" rows="10"></textarea>
-          </div>
+          <form>
+            <div class="field">
+              <p>Ваше имя*</p>
+              <input type="text" name="some" placeholder="" required/>
+            </div>
+            <div class="field">
+              <p>Телефон*</p>
+              <input type="tel" name="some" placeholder="" required/>
+            </div>
+            <div class="field">
+              <p>Email*</p>
+              <input type="email" name="some" placeholder="" required/>
+            </div>
+            <div class="field">
+              <p>Сообщение</p>
+              <textarea cols="30" rows="10"></textarea>
+            </div>
+            <input type="submit" name="some" value="Отправить" style="">
+            <!--        <a href="#"><p>Отправить</p></a>-->
+          </form>
         </div>
-        <a href="#"><p>Отправить</p></a></div>
+      </div>
     </div>
   </div>
 </div>
-</div>
 
-
+<script src="js/slider.js"></script>
 <script>
-  var slideIndex = 1;
-  showSlides(slideIndex);
+  document.getElementsByClassName("field").addEventListener("invalid", myFunction);
 
-  function changeSlide(n) {
-    showSlides(slideIndex += n);
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("slide");
-    if (n > slides.length) {
-      slideIndex = 1
-    }
-    if (n < 1) {
-      slideIndex = slides.length
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-
-    slides[slideIndex - 1].style.display = "block";
-  }
-
-  function contactForm() {
-    var contform = document.getElementById("form");
-    contform.style.display = ("block");
-  }
-
-  function exitForm() {
-    var contform = document.getElementById("form");
-    contform.style.display = ("none");
+  function myFunction() {
+    alert("Must contain 6 or more characters");
   }
 </script>
 
